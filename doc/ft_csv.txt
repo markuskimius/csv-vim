@@ -39,12 +39,15 @@ not enclosed newlines for performance reasons.
 Initialization is automatic when editing a file with the extensions .csv,
 .psv, or .tsv.  They can be enabled manually using the following:
 
+                                                 *:CsvInit*
 :CsvInit                 Initialize the macros in csv mode and set the
                          |filetype| to "csv".
 
+                                                 *:PsvInit*
 :PsvInit                 Initialize the macros in psv mode and set the
                          |filetype| to "psv".
 
+                                                 *:TsvInit*
 :TsvInit                 Initialize the macros in tsv mode and set the
                          |filetype| to "tsv".
 

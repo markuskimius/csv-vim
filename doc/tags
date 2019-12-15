@@ -24,12 +24,15 @@
 :CsvDelim	ft_csv.txt	/*:CsvDelim*
 :CsvEcho	ft_csv.txt	/*:CsvEcho*
 :CsvHeader	ft_csv.txt	/*:CsvHeader*
+:CsvInit	ft_csv.txt	/*:CsvInit*
 :CsvMatch	ft_csv.txt	/*:CsvMatch*
 :CsvPaste	ft_csv.txt	/*:CsvPaste*
 :CsvPasteA	ft_csv.txt	/*:CsvPasteA*
 :CsvPasteO	ft_csv.txt	/*:CsvPasteO*
 :CsvSpan	ft_csv.txt	/*:CsvSpan*
 :CsvSub	ft_csv.txt	/*:CsvSub*
+:PsvInit	ft_csv.txt	/*:PsvInit*
+:TsvInit	ft_csv.txt	/*:TsvInit*
 <C-h>	ft_csv.txt	/*<C-h>*
 <C-j>	ft_csv.txt	/*<C-j>*
 <C-k>	ft_csv.txt	/*<C-k>*
