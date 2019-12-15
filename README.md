@@ -14,7 +14,7 @@ git clone https://github.com/markuskimius/csv-vim.git
 ```
 
 The macros are enabled automatically when editing a file with the extensions
-.csv, .psv, or tsv.  It can also be enabled manually using `:CsvInit`,
+.csv, .psv, or tsv.  They can also be enabled manually using `:CsvInit`,
 `:PsvInit`, or `:TsvInit`.
 
 
