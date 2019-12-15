@@ -1,1 +1,1 @@
-autocmd BufRead,BufNewFile *.tsv set filetype=tsv | call CsvInit()
+autocmd BufRead,BufNewFile *.tsv set filetype=tsv | TsvInit

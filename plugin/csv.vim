@@ -103,10 +103,10 @@ endfunction
 " that use its value.
 "
 function! CsvSetDelim(delim)
-    let b:csvDelim = a:delim
-
     if CsvIsValidDelim(a:delim)
-        call CsvHilite()
+        let b:csvDelim = a:delim
+        call CsvHiliteOff()
+
         echo 'Column delimiter set to ' . a:delim
     else
         echo 'Invalid delimiter: ' . a:delim
@@ -1399,7 +1399,7 @@ function! CsvInit()
     command! -buffer -nargs=? Header :call CsvSetHeader(<args>)
     command! -buffer Csv :call CsvSetDelim(',')|set filetype=csv
     command! -buffer Psv :call CsvSetDelim('|')|set filetype=psv
-    command! -buffer Tsv :call CsvSetDelim("\t")
+    command! -buffer Tsv :call CsvSetDelim("\t")|set filetype=tsv
 
     " Display
     map <buffer> <silent> <F2>  :<C-U>echo 'Col 1-2: '.CsvGetFields(0,2)<CR>
@@ -1477,5 +1477,7 @@ endfunction
 
 
 " A quick way to enable the csv macros
-command! -buffer InitCsv :call CsvInit()
+command! -buffer CsvInit :call CsvInit() | :let b:csvDelim=','  | :set filetype=csv
+command! -buffer PsvInit :call CsvInit() | :let b:csvDelim='|'  | :set filetype=psv
+command! -buffer TsvInit :call CsvInit() | :let b:csvDelim="\t" | :set filetype=tsv
 

@@ -37,6 +37,8 @@
 csv	ft_csv.txt	/*csv*
 csv-config	ft_csv.txt	/*csv-config*
 csv-edit	ft_csv.txt	/*csv-edit*
+csv-init	ft_csv.txt	/*csv-init*
+csv-license	ft_csv.txt	/*csv-license*
 csv-navigation	ft_csv.txt	/*csv-navigation*
 csv-ref	ft_csv.txt	/*csv-ref*
 csv-search	ft_csv.txt	/*csv-search*

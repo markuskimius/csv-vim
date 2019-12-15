@@ -1,1 +1,1 @@
-autocmd BufRead,BufNewFile *.psv set filetype=psv | call CsvInit()
+autocmd BufRead,BufNewFile *.psv set filetype=psv | PsvInit

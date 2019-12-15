@@ -23,17 +23,34 @@ allows a quote itself to be stored within the quotes using two quotes that
 represent one quote.  This plugin supports enclosed separators and quotes but
 not enclosed newlines for performance reasons.
 
-1. Selection                                                      |csv-select|
-2. Navigation                                                 |csv-navigation|
-3. Search                                                         |csv-search|
-4. Editing                                                          |csv-edit|
-5. Configuration                                                  |csv-config|
-6. References                                                        |csv-ref|
-7. License                                                       |csv-license|
+1. Initialization                                                   |csv-init|
+2. Selection                                                      |csv-select|
+3. Navigation                                                 |csv-navigation|
+4. Search                                                         |csv-search|
+5. Editing                                                          |csv-edit|
+6. Configuration                                                  |csv-config|
+7. References                                                        |csv-ref|
+8. License                                                       |csv-license|
 
 
 ==============================================================================
-1. Selection                                                      *csv-select*
+1. Initialization                                                   *csv-init*
+
+Initialization is automatic when editing a file with the extensions .csv,
+.psv, or .tsv.  They can be enabled manually using the following:
+
+:CsvInit                 Initialize the macros in csv mode and set the
+                         |filetype| to "csv".
+
+:PsvInit                 Initialize the macros in psv mode and set the
+                         |filetype| to "psv".
+
+:TsvInit                 Initialize the macros in tsv mode and set the
+                         |filetype| to "tsv".
+
+
+==============================================================================
+2. Selection                                                      *csv-select*
 
 In addition to syntax highlighting, columns may be manually selected to
 highlight them.  Selected columns are also affected by |csv-edit| operations.
@@ -61,7 +78,7 @@ Selections may be moved with |csv-navigation| operations.
 
 
 ==============================================================================
-2. Navigation                                                 *csv-navigation*
+3. Navigation                                                 *csv-navigation*
 
                                               *<C-h>* *<C-l>* *,<Left>* *,<Right>*
 <C-h> or ,<Left>         Jump left [count] columns from the CURRENT column.
@@ -73,7 +90,7 @@ Selections may be moved with |csv-navigation| operations.
 
 
 ==============================================================================
-3. Search                                                         *csv-search*
+4. Search                                                         *csv-search*
 
                                                  *,/*
 ,/{pattern}<CR>          Jump forward [count] times to the column whose header
@@ -90,7 +107,7 @@ Selections may be moved with |csv-navigation| operations.
 
 
 ==============================================================================
-4. Editing                                                          *csv-edit*
+5. Editing                                                          *csv-edit*
 
                                                  *,y*
 [range]["x],y            Yank the SELECTED columns [into register x].  If
@@ -182,7 +199,7 @@ Selections may be moved with |csv-navigation| operations.
 
 
 ==============================================================================
-5. Configuration                                                  *csv-config*
+6. Configuration                                                  *csv-config*
 
                                                  *:CsvHeader*
 :CsvHeader [n]           Treat the current row as the header row.  If [n] is
@@ -194,7 +211,7 @@ Selections may be moved with |csv-navigation| operations.
 
 
 ==============================================================================
-6. References                                                        *csv-ref*
+7. References                                                        *csv-ref*
 
 Following webpages were useful for creating this plugin:
 
@@ -203,7 +220,7 @@ Following webpages were useful for creating this plugin:
 
 
 ==============================================================================
-7. License                                                       *csv-license*
+8. License                                                       *csv-license*
 
 This plugin in licensed under Apache License 2.0.  For more details, see:
 

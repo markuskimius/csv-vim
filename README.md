@@ -13,13 +13,9 @@ cd ~/.vim/pack/plugins/start
 git clone https://github.com/markuskimius/csv-vim.git
 ```
 
-The macros are enabled automatically when editing a file with the extension
-.csv, .psv, or tsv.  It can also be enabled manually using `:InitCsv`.
-
-Regardless of the filename's extension, the delimiter is auto-detected from a
-comma, a pipe, or a tab.  The delimiter can be force-changed with the commands
-`:Csv`, `:Psv`, `:Tsv`, or to an arbitrary character using
-`:SetDelim("<delim>")`.
+The macros are enabled automatically when editing a file with the extensions
+.csv, .psv, or tsv.  It can also be enabled manually using `:CsvInit`,
+`:PsvInit`, or `:TsvInit`.
 
 
 ## Usage
@@ -53,9 +49,6 @@ There are many more commands.  See `:help csv` for the complete list.
 ## Syntax Highlighting
 
 The package also includes syntax highlighting of csv, psv, and tsv files.
-Unlike the macros, syntax highlighting is not auto-detected but set from the
-filename's extension.  It can be changed manually using `:set
-filetype=<extension>`.
 
 
 ## License
