@@ -1475,3 +1475,7 @@ function! CsvInit()
     call CsvOnLoad()
 endfunction
 
+
+" A quick way to enable the csv macros
+command! -buffer InitCsv :call CsvInit()
+

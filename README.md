@@ -14,11 +14,7 @@ git clone https://github.com/markuskimius/csv-vim.git
 ```
 
 The macros are enabled automatically when editing a file with the extension
-.csv, .psv, or tsv.  It can also be enabled manually in vim with this command:
-
-```vim
-:call CsvInit()
-```
+.csv, .psv, or tsv.  It can also be enabled manually using `:InitCsv`.
 
 Regardless of the filename's extension, the delimiter is auto-detected from a
 comma, a pipe, or a tab.  The delimiter can be force-changed with the commands
