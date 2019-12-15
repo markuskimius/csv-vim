@@ -38,8 +38,8 @@ Navigation:
 Column Selection:
 
 * `<Ctrl>-.` to select the column with the cursor.
-* `<Ctrl>-}` to expand the selection by one extra column.
-* `<Ctrl>-{` to reduce the selection by one fewer column.
+* `}` to expand the selection by one extra column.
+* `{` to reduce the selection by one fewer column.
 
 Editing:
 
