@@ -50,7 +50,7 @@ operate only on a subset of rows.
 * `,n` to repeat the search.
 * `,N` to repeat the search in the reverse direction.
 
-### Etc.
+### For more information:
 
 See `:help csv` for the complete list of commands.
 
