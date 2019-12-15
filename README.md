@@ -63,5 +63,6 @@ The package also includes syntax highlighting of csv, psv, and tsv files.
 [Apache 2.0]
 
 
+
 [Apache 2.0]: <https://github.com/markuskimius/csv-vim/blob/master/LICENSE>
 
