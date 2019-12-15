@@ -1,0 +1,213 @@
+*ft_csv.txt*	             For Vim version 8.1.     Last change: 2019 Dec 15
+
+
+                    CSV FILE TYPE PLUG-IN REFERENCE MANUAL                 *csv*
+                                 by Mark Kim
+
+                            markuskimius@gmail.com
+                   https://github.com/markuskimius/csv-vim
+
+
+Comma-separated values (CSV) is a file format for storing tabular data.  It
+consists of one or more rows separated by newlines, where each row consists of
+one or more values separated by commas.  Values across the rows at the same
+comma-separated position are called a 'column', and typically contain related
+types of data.  Often the first row of the file, called the 'header' row, may
+describe the type of the data.
+
+Most variants of CSV allows for a value that can store one or more commas.
+This is done by enclosing the value in quotes ("), such that any comma within
+the quotes are considered to be a part of the value.  RFC 4180 (the "standard"
+CSV format) also allows newlines to be stored in the quotes as well, and
+allows a quote itself to be stored within the quotes using two quotes that
+represent one quote.  This plugin supports enclosed separators and quotes but
+not enclosed newlines for performance reasons.
+
+1. Selection                                                      |csv-select|
+2. Navigation                                                 |csv-navigation|
+3. Search                                                         |csv-search|
+4. Editing                                                          |csv-edit|
+5. Configuration                                                  |csv-config|
+6. References                                                        |csv-ref|
+7. License                                                       |csv-license|
+
+
+==============================================================================
+1. Selection                                                      *csv-select*
+
+In addition to syntax highlighting, columns may be manually selected to
+highlight them.  Selected columns are also affected by |csv-edit| operations.
+Selections may be moved with |csv-navigation| operations.
+
+                                                 *,.*
+,.                       Select starting with the CURRENT column.
+
+                                                 *,`*
+,`                       Disable highlighting of the SELECTED columns until
+                         the next |csv-select| or |csv-navigation| operation.
+
+                                                 *{* *}*
+}                        Increase the number of SELECTED columns by [count].
+{                        Decreate the number of SELECTED columns by [count].
+
+                                                 *,^* *,$*
+,^                       Select the CURRENT column only.
+,$                       Select the CURRENT column to the LAST column of the
+                         current row.
+
+                                                 *:CsvSpan*
+:CsvSpan {n}             Change the number of SELECTED columns to {n}.  The
+                         default is 1.
+
+
+==============================================================================
+2. Navigation                                                 *csv-navigation*
+
+                                              *<C-h>* *<C-l>* *,<Left>* *,<Right>*
+<C-h> or ,<Left>         Jump left [count] columns from the CURRENT column.
+<C-l> or ,<Right>        Jump right [count] columns from the CURRENT column.
+
+                                                 *<C-k>* *<C-j>* *,<Up>* *,<Down>*
+<C-k> or ,<Up>           Jump up [count] rows to the first SELECTED column.
+<C-j> or ,<Down>         Jump down [count] rows to the first SELECTED column.
+
+
+==============================================================================
+3. Search                                                         *csv-search*
+
+                                                 *,/*
+,/{pattern}<CR>          Jump forward [count] times to the column whose header
+                         matches {pattern}.  If {pattern} is a number, jump to
+                         the {pattern}-th column.  If {pattern} is not
+                         specified, the last pattern used is repeated.
+
+                                                 *,?*
+,?{pattern}<CR>          Jump backward [count] times to the column whose
+                         header matches {pattern}.  If {pattern} is a number,
+                         jump to the {pattern}-th column from the last column.
+                         If {pattern} is not specified, the last pattern used
+                         is repeated.
+
+
+==============================================================================
+4. Editing                                                          *csv-edit*
+
+                                                 *,y*
+[range]["x],y            Yank the SELECTED columns [into register x].  If
+                         [range] is specified, only the columns from the
+                         SELECTED range are yanked.
+
+                                                 *,x*
+[range]["x],x            Cut the SELECTED columns [into register x].  If
+                         [range] is specified, only the columns in the
+                         specified rows are cut.
+
+                                                 *,X*
+[range],X                Delete the SELECTED columns.  If [range] is
+                         specified, only the columns in the specified rows are
+                         deleted.
+
+                                                 *,p*
+[range]["x],p            Paste the columns [from register x] after the CURRENT
+                         column.  If [range] is specified, the column is only
+                         inserted into the rows within the range.
+
+                                                 *,P*
+[range]["x],P            Paste the columns [from register x] before the
+                         CURRENT column.  If [range] is specified, the column
+                         is only inserted into the rows within the range.
+
+                                                 *,O*
+[range]["x],O            Paste the columns [from register x] over the CURRENT
+                         column.  If [range] is specified, the column is only
+                         inserted into the rows within the range.
+
+                                                 *,I*
+[range],I{text}<CR>      Insert a new column before the SELECTED columns whose
+                         value is {text}.  If [range] is specified, the column
+                         is inserted only to the rows in the specified range.
+
+                                                 *,a*
+[range],a{text}<CR>      Insert a new column after the SELECTED columns whose
+                         value is {text}.  If [range] is specified, the column
+                         is inserted only to the rows in the specified range.
+
+                                                 *,A*
+[range],A{text}<CR>      Insert a new column after the LAST column whose value
+                         is {text}.  If [range] is specified, the column is
+                         inserted only to the rows in the specified range.
+
+                                                 *,c*
+[range],c{text}<CR>      Replace the SELECTED columns with one column whose
+                         value is {text}.  If [range] is specified, only the
+                         columns in the specified rows are changed.
+
+                                                 *,_*
+[n],_                    Display the [n]-th column of the current row to the
+                         status line during |csv-navigation| instead of the
+                         header of the first SELECTED column.  Omit [n] to
+                         restore the default behavior.
+
+                                                 *:CsvEcho*
+:CsvEcho                 Echo the SELECTED columns.
+
+                                                 *:CsvMatch*
+:CsvMatch {regex}        Echo the SELECTED columns if the first SELECTED
+                         column matches {regex}.
+
+                                                 *:CsvSub*
+:CsvSub {regex} {repl} [flags]
+                         Substitute the values in the SELECTED columns that
+                         match {regex} with {repl}.
+
+                                                 *:CsvCopy*
+:CsvCopy {regex}         Copy the SELECTED columns if the first SELECTED
+                         column matches {regex}.
+
+                                                 *:CsvDel*
+:CsvDel {regex}          Delete the SELECTED columns if the first SELECTED
+                         column matches {regex}.
+
+                                                 *:CsvPaste*
+:CsvPaste {regex}        Paste before the CURRENT column if the first SELECTED
+                         column matches {regex}.
+
+                                                 *:CsvPasteA*
+:CsvPasteA {regex}       Paste after the CURRENT column if the first SELECTED
+                         column matches {regex}.
+
+                                                 *:CsvPasteO*
+:CsvPasteO {regex}       Paste over the CURRENT column if the first SELECTED
+                         column matches {regex}.
+
+
+==============================================================================
+5. Configuration                                                  *csv-config*
+
+                                                 *:CsvHeader*
+:CsvHeader [n]           Treat the current row as the header row.  If [n] is
+                         specified, treat the [n]-th row as the header row.
+                         By default, the first row is the header row.
+
+                                                 *:CsvDelim*
+:CsvDelim {char}         Change the delimiter to {char} instead of the comma.
+
+
+==============================================================================
+6. References                                                        *csv-ref*
+
+Following webpages were useful for creating this plugin:
+
+    http://vim.wikia.com/wiki/Navigate_large_CSV_files_more_easily
+    https://www.vim.org/scripts/script.php?script_id=309
+
+
+==============================================================================
+7. License                                                       *csv-license*
+
+This plugin in licensed under Apache License 2.0.  For more details, see:
+
+    https://github.com/markuskimius/csv-vim/blob/master/LICENSE
+
+
+vim:tw=78:ts=8:ft=help:norl
