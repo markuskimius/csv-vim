@@ -20,20 +20,20 @@ The macros are enabled automatically when editing a file with the extensions
 
 ## Usage
 
-Navigation:
+### Navigation:
 
 * `<Ctrl>-h` or `<Ctrl>-<Left>` to move the cursor to the left column
 * `<Ctrl>-l` or `<Ctrl>-<Right>` to move the cursor to the right column
 * `<Ctrl>-j` or `<Ctrl>-<Down>` to move the cursor to the same column on the next row.
 * `<Ctrl>-k` or `<Ctrl>-<Up>` to move the cursor to the same column on the previous row.
 
-Column Selection:
+### Column Selection:
 
 * `,.` to select the column with the cursor on it.
 * `}` to expand the selection by one extra column.
 * `{` to reduce the selection by one fewer column.
 
-Editing:
+### Editing:
 
 * `,y` to copy the selected column(s).
 * `,x` to cut the selected column(s).
@@ -43,12 +43,14 @@ Editing:
 The edit operations may specify a buffer.  They may also specify a range to
 operate only on a subset of rows.
 
-Searching:
+### Searching:
 
 * `,/<regex>` to move the cursor and the selection to the next column whose header matches `<regex>`.
 * `,?<regex>` to move the cursor and the selection to the previou column whose header matches `<regex>`.
 * `,n` to repeat the search.
 * `,N` to repeat the search in the reverse direction.
+
+### Etc.
 
 See `:help csv` for the complete list of commands.
 
