@@ -1477,7 +1477,7 @@ endfunction
 
 
 " A quick way to enable the csv macros
-command! -buffer CsvInit :call CsvInit() | :let b:csvDelim=','  | :set filetype=csv
-command! -buffer PsvInit :call CsvInit() | :let b:csvDelim='|'  | :set filetype=psv
-command! -buffer TsvInit :call CsvInit() | :let b:csvDelim="\t" | :set filetype=tsv
+command! CsvInit :call CsvInit() | :let b:csvDelim=','  | :set filetype=csv
+command! PsvInit :call CsvInit() | :let b:csvDelim='|'  | :set filetype=psv
+command! TsvInit :call CsvInit() | :let b:csvDelim="\t" | :set filetype=tsv
 
