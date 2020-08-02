@@ -2,7 +2,7 @@
 " Maintainer:   Mark Kim
 " License:      Apache License 2.0
 " URL:          https://github.com/markuskimius/csv-vim
-" Last change:  2019 Dec 15
+" Last change:  2020 Aug 2
 "
 " References:
 "
@@ -50,8 +50,6 @@ function! CsvAutoDetectDelim()
         let b:csvDelim = ','
         set filetype=csv
     endif
-
-    "call RefreshCsvInfo()
 endfunction
 
 
@@ -636,7 +634,7 @@ endfunction
 
 " Count the number of lines in a variable.
 function! CsvVarCountLines(buf)
-    let buf = substitute(a:buf, "[^\n]*[\n]\\?", '*', 'g')
+    let buf = substitute(a:buf, "[^\n]*", '', 'g')
 
     return strlen(buf) + 1
 endfunction
@@ -1056,7 +1054,7 @@ function! CsvEcho(line1, line2)
     while i <= a:line2
         let l = getline(i)
 
-        echo CsvLineGetFields(l, b:csvColumn, b:csvColSpan)."\n"
+        echo CsvLineGetFields(l, b:csvColumn, b:csvColSpan)
         let i = i + 1
     endwhile
 endfunction
@@ -1147,7 +1145,7 @@ function! CsvCopy(line1, line2, regex)
         let f = CsvLineGetFields(l, b:csvColumn, b:csvColSpan)
         
         if CsvLineMatchesRegex1(f, a:regex)
-            let buf = buf . "\n" . f
+            let buf = buf . f . "\n"
         endif
 
         call CsvTimerStat('Copied '.b:csvColSpan.' column(s) on '.j.' of '.lcount.' lines')
@@ -1155,7 +1153,6 @@ function! CsvCopy(line1, line2, regex)
         let i = i + 1
         let j = j + 1
     endwhile
-    let buf = strpart(buf, 1)
 
     call setreg(v:register, buf, 'b')
     echo 'Copied '.CsvTextColLine(b:csvColSpan, lcount)
@@ -1206,7 +1203,7 @@ function! CsvCut(line1, line2, regex)
             let l = CsvLineDelCols(l, b:csvColumn, b:csvColSpan)
             call setline(i, l)
 
-            let buf = buf . "\n" . f
+            let buf = buf . f . "\n"
         endif
 
         call CsvTimerStat('Cut '.b:csvColSpan.' column(s) on '.j.' of '.lcount.' lines')
@@ -1214,7 +1211,6 @@ function! CsvCut(line1, line2, regex)
         let i = i + 1
         let j = j + 1
     endwhile
-    let buf = strpart(buf, 1)
 
     call setreg(v:register, buf, 'b')
     echo 'Cut '.CsvTextColLine(b:csvColSpan, lcount)
