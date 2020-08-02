@@ -2,7 +2,7 @@
 
 vim macros for editing csv files.
 
-![screenshot](https://github.com/markuskimius/csv-vim/blob/master/doc/screenshot.gif)
+![screenshot](https://github.com/markuskimius/csv-vim/blob/master/doc/screenshot.gif | width=980)
 
 
 ## Installation
