@@ -7,12 +7,18 @@ vim macros for editing csv files.
 
 ## Installation
 
-Simply clone the repository into a vim pack directory.  E.g.,
+To install, clone the repository into a vim pack directory.  E.g.,
 
 ```sh
 mkdir -p ~/.vim/pack/plugins/start
 cd ~/.vim/pack/plugins/start
 git clone https://github.com/markuskimius/csv-vim.git
+```
+
+Alternatively, install with [cafe]:
+
+```sh
+cafe install-git https://github.com/markuskimius/csv-vim.git
 ```
 
 The macros are enabled automatically when editing a file with the extensions
@@ -67,4 +73,5 @@ The package also includes syntax highlighting of csv, psv, and tsv files.
 
 
 [Apache 2.0]: <https://github.com/markuskimius/csv-vim/blob/master/LICENSE>
+      [cafe]: <https://github.com/markuskimius/cafe>
 
