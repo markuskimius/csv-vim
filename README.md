@@ -15,12 +15,6 @@ cd ~/.vim/pack/plugins/start
 git clone https://github.com/markuskimius/csv-vim.git
 ```
 
-Alternatively, install with [cafe]:
-
-```sh
-cafe install-git https://github.com/markuskimius/csv-vim.git
-```
-
 The macros are enabled automatically when editing a file with the extensions
 .csv, .psv, or tsv.  They can also be enabled manually using `:CsvInit`,
 `:PsvInit`, or `:TsvInit`.
@@ -73,5 +67,4 @@ The package also includes syntax highlighting of csv, psv, and tsv files.
 
 
 [Apache 2.0]: <https://github.com/markuskimius/csv-vim/blob/master/LICENSE>
-      [cafe]: <https://github.com/markuskimius/cafe>
 
